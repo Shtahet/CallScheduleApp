@@ -23,6 +23,24 @@ namespace CallScheduleApp
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Label lbSend = sender as Label;
+            if (lbSend == null)
+                return;
+            lbSend.BorderThickness = new Thickness(5);
+            lbSend.BorderBrush = Brushes.LightBlue;
+        }
+
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Label lbSend = sender as Label;
+            if (lbSend == null)
+                return;
+            lbSend.BorderThickness = new Thickness();
         }
     }
 }

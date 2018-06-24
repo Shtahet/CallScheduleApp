@@ -5,8 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CallScheduleApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Рассписание дежурств" Height="450" Width="1000">
+    <DockPanel LastChildFill="True">
+        <Grid ShowGridLines="True" DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.Column="0">
+                <TextBlock Margin="5">Рассчитать расписание на </TextBlock>
+                <ComboBox Margin="5" MinWidth="75">
+                    <TextBlock>Январь</TextBlock>
+                    <TextBlock>Февраль</TextBlock>
+                </ComboBox>
+                <ComboBox Margin="5" MinWidth="75">
+                    <TextBlock>2018</TextBlock>
+                    <TextBlock>2019</TextBlock>
+                    <TextBlock>2020</TextBlock>
+                </ComboBox>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1">
+                <TextBlock Margin="5">Последнее дежурство было:</TextBlock>
+                <DatePicker x:Name="last_call"></DatePicker>
+            </WrapPanel>
+            <WrapPanel Grid.Column="2">
+                <TextBlock Margin="5">Я работаю</TextBlock>
+                <ComboBox Margin="5"></ComboBox>
+                <TextBlock Margin="5">дней через</TextBlock>
+                <ComboBox Margin="5"></ComboBox>
+                <TextBlock Margin="5">дней</TextBlock>
+            </WrapPanel>
+        </Grid>
+        <UniformGrid DockPanel.Dock="Top" 
+                     Columns="7"
+                     Margin="10 10 10 0">
+            <Label Content="Пн" HorizontalContentAlignment="Center"/>
+            <Label Content="Вт" HorizontalContentAlignment="Center"/>
+            <Label Content="Ср" HorizontalContentAlignment="Center"/>
+            <Label Content="Чт" HorizontalContentAlignment="Center"/>
+            <Label Content="Пт" HorizontalContentAlignment="Center"/>
+            <Label Content="Сб" HorizontalContentAlignment="Center"/>
+            <Label Content="Нд" HorizontalContentAlignment="Center"/>
+        </UniformGrid>
+        <UniformGrid Rows="5" 
+                     Columns="7"
+                     Margin="10 0 10 10">
+            <Label Content="1" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="2" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="3" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="4" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="5" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="6" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="7" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="8" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="9" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="10" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="11" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="12" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="13" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="14" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="15" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="16" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="17" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="18" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="19" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="20" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="21" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="22" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="23" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="24" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="25" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="26" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="27" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="28" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="29" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="30" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="31" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="32" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="33" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="34" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+            <Label Content="35" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+        </UniformGrid>
+    </DockPanel>
 </Window>
