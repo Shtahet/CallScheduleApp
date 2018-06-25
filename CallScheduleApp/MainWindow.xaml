@@ -15,14 +15,13 @@
             </Grid.ColumnDefinitions>
             <WrapPanel Grid.Column="0">
                 <TextBlock Margin="5">Рассчитать расписание на </TextBlock>
-                <ComboBox Margin="5" MinWidth="75">
-                    <TextBlock>Январь</TextBlock>
-                    <TextBlock>Февраль</TextBlock>
+                <ComboBox x:Name="months" 
+                          Margin="5" 
+                          MinWidth="75">
                 </ComboBox>
-                <ComboBox Margin="5" MinWidth="75">
-                    <TextBlock>2018</TextBlock>
-                    <TextBlock>2019</TextBlock>
-                    <TextBlock>2020</TextBlock>
+                <ComboBox x:Name="years" 
+                          Margin="5" 
+                          MinWidth="75">
                 </ComboBox>
             </WrapPanel>
             <WrapPanel Grid.Column="1">
