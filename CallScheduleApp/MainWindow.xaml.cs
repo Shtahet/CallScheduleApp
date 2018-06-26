@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,21 @@ namespace CallScheduleApp
             InitializYearsList();
 
             InitializeMonthList();
-            
+
+            InitalizeWorkDays();
+        }
+
+        private void InitalizeWorkDays()
+        {
+            List<int> workDaysList = new List<int>();
+
+            for (int i = 1; i<=14; ++i)
+            {
+                workDaysList.Add(i);
+            }
+
+            work_days.ItemsSource = workDaysList;
+            work_days.SelectedItem = 2;
         }
 
         private void InitializYearsList()

@@ -30,9 +30,11 @@
             </WrapPanel>
             <WrapPanel Grid.Column="2">
                 <TextBlock Margin="5">Я работаю</TextBlock>
-                <ComboBox Margin="5"></ComboBox>
+                <ComboBox x:Name="work_days" 
+                          Margin="5" />
                 <TextBlock Margin="5">дней через</TextBlock>
-                <ComboBox Margin="5"></ComboBox>
+                <ComboBox x:Name="rest_days" 
+                          Margin="5" />
                 <TextBlock Margin="5">дней</TextBlock>
             </WrapPanel>
         </Grid>
