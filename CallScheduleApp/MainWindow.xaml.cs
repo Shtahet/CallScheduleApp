@@ -48,7 +48,7 @@ namespace CallScheduleApp
         {
             DateTime targetDate = new DateTime((int)years.SelectedValue, (int)months.SelectedValue, 1);
             int offset = Convert.ToInt32(targetDate.DayOfWeek.ToString("D"));
-            DateTime date = (offset !=1) ? targetDate.AddDays(-offset) : targetDate;
+            DateTime date = (offset != 1) ? targetDate.AddDays(-offset + 1) : targetDate;
 
             foreach (var day in daysItems)
             {
