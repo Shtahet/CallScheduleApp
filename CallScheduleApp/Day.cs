@@ -13,6 +13,7 @@ namespace CallScheduleApp
         private DateTime _d;
         private bool _isWorkDay;
         private bool _isCurrDay;
+        private bool _isCurrMonth;
 
         public Day(DateTime date)
         {
@@ -37,6 +38,16 @@ namespace CallScheduleApp
             set
             {
                 _isCurrDay = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsCurrentMonth
+        {
+            get { return _isCurrMonth; }
+            set
+            {
+                _isCurrMonth = value;
                 OnPropertyChanged();
             }
         }
