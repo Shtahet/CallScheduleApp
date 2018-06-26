@@ -37,6 +37,8 @@ namespace CallScheduleApp
             //Init rest days
             InitializeDays(rest_days, 14, 2);
 
+            last_call.SelectedDate = DateTime.Today;
+
             InitializeDaysItemsCollection();
 
             FillCalendar((int)years.SelectedValue, (int)months.SelectedValue );
@@ -59,12 +61,28 @@ namespace CallScheduleApp
             }
         }
 
-        public static bool CalcWorkingDay(DateTime date, DateTime? selectedDate)
+        private bool CalcWorkingDay(DateTime date, DateTime? selectedDate)
         {
             if (selectedDate == null)
                 return false;
 
-            return true;
+            int daysDiff = (date - selectedDate.Value).Days;
+            int cycle = (int)work_days.SelectedValue + (int)rest_days.SelectedValue;
+            int reminder = Math.Abs(daysDiff % cycle);
+            if (date < selectedDate.Value)
+            {
+                if (reminder < (int)work_days.SelectedValue)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                if (reminder < (int)rest_days.SelectedValue)
+                    return false;
+                else
+                    return true;
+            }
         }
 
         private void InitializeDaysItemsCollection()
