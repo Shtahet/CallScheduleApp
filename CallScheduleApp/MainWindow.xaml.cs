@@ -22,6 +22,7 @@ namespace CallScheduleApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ObservableCollection<Day> daysItems = new ObservableCollection<Day>();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +36,45 @@ namespace CallScheduleApp
 
             //Init rest days
             InitializeDays(rest_days, 14, 2);
+
+            InitializeDaysItemsCollection();
+
+            FillCalendar((int)years.SelectedValue, (int)months.SelectedValue );
+        }
+
+        private void FillCalendar(int year, int month)
+        {
+            DateTime targetDate = new DateTime(year, month, 1);
+            int offset = Convert.ToInt32(targetDate.DayOfWeek.ToString("D"));
+            DateTime date = (offset !=1) ? targetDate.AddDays(-offset) : targetDate;
+
+            foreach (var day in daysItems)
+            {
+                day.Date = date;
+                day.IsCurrentDay = date == DateTime.Today;
+                day.IsCurrentMonth = date.Month == targetDate.Month;
+                day.IsWorkingDay = CalcWorkingDay(date, last_call.SelectedDate);
+
+                date = date.AddDays(1);
+            }
+        }
+
+        public static bool CalcWorkingDay(DateTime date, DateTime? selectedDate)
+        {
+            if (selectedDate == null)
+                return false;
+
+            return true;
+        }
+
+        private void InitializeDaysItemsCollection()
+        {
+            for (int i=0; i<35; ++i)
+            {
+                daysItems.Add(new Day());
+            }
+
+            Calendar.ItemsSource = daysItems;
         }
 
         private void InitializeDays(ComboBox obj, int length, int deffValue)
@@ -83,21 +123,5 @@ namespace CallScheduleApp
 
         }
 
-        private void Label_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Label lbSend = sender as Label;
-            if (lbSend == null)
-                return;
-            lbSend.BorderThickness = new Thickness(5);
-            lbSend.BorderBrush = Brushes.LightBlue;
-        }
-
-        private void Label_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Label lbSend = sender as Label;
-            if (lbSend == null)
-                return;
-            lbSend.BorderThickness = new Thickness();
-        }
     }
 }

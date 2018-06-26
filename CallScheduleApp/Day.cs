@@ -15,11 +15,6 @@ namespace CallScheduleApp
         private bool _isCurrDay;
         private bool _isCurrMonth;
 
-        public Day(DateTime date)
-        {
-            _d = date;
-        }
-
         public int NumDay => _d.Day;
 
         public bool IsWorkingDay
