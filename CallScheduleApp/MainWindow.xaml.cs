@@ -69,7 +69,7 @@ namespace CallScheduleApp
             int daysDiff = (date - selectedDate.Value).Days;
             int cycle = (int)work_days.SelectedValue + (int)rest_days.SelectedValue;
             int reminder = Math.Abs(daysDiff % cycle);
-            if (date < selectedDate.Value)
+            if (date <= selectedDate.Value)
             {
                 if (reminder < (int)work_days.SelectedValue)
                     return true;
@@ -78,7 +78,10 @@ namespace CallScheduleApp
             }
             else
             {
-                if (reminder < (int)rest_days.SelectedValue)
+                if (reminder == 0)
+                    return true;
+
+                if (reminder <= (int)rest_days.SelectedValue)
                     return false;
                 else
                     return true;
