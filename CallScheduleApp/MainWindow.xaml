@@ -17,24 +17,29 @@
                 <TextBlock Margin="5">Рассчитать расписание на </TextBlock>
                 <ComboBox x:Name="months" 
                           Margin="5" 
-                          MinWidth="75">
+                          MinWidth="75"
+                          SelectionChanged="report_SelectionChanged">
                 </ComboBox>
                 <ComboBox x:Name="years" 
                           Margin="5" 
-                          MinWidth="75">
+                          MinWidth="75"
+                          SelectionChanged="report_SelectionChanged">
                 </ComboBox>
             </WrapPanel>
             <WrapPanel Grid.Column="1">
                 <TextBlock Margin="5">Последнее дежурство было:</TextBlock>
-                <DatePicker x:Name="last_call"></DatePicker>
+                <DatePicker x:Name="last_call" 
+                            SelectedDateChanged="report_SelectionChanged"/>
             </WrapPanel>
             <WrapPanel Grid.Column="2">
                 <TextBlock Margin="5">Я работаю</TextBlock>
                 <ComboBox x:Name="work_days" 
-                          Margin="5" />
+                          Margin="5" 
+                          SelectionChanged="report_SelectionChanged"/>
                 <TextBlock Margin="5">день через</TextBlock>
                 <ComboBox x:Name="rest_days" 
-                          Margin="5" />
+                          Margin="5" 
+                          SelectionChanged="report_SelectionChanged"/>
                 <TextBlock Margin="5">дня</TextBlock>
             </WrapPanel>
         </Grid>

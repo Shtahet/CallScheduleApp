@@ -41,12 +41,12 @@ namespace CallScheduleApp
 
             InitializeDaysItemsCollection();
 
-            FillCalendar((int)years.SelectedValue, (int)months.SelectedValue );
+            FillCalendar();
         }
 
-        private void FillCalendar(int year, int month)
+        private void FillCalendar()
         {
-            DateTime targetDate = new DateTime(year, month, 1);
+            DateTime targetDate = new DateTime((int)years.SelectedValue, (int)months.SelectedValue, 1);
             int offset = Convert.ToInt32(targetDate.DayOfWeek.ToString("D"));
             DateTime date = (offset !=1) ? targetDate.AddDays(-offset) : targetDate;
 
@@ -144,5 +144,10 @@ namespace CallScheduleApp
 
         }
 
+        private void report_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(years.SelectedValue != null && months.SelectedValue != null)
+                FillCalendar();
+        }
     }
 }
