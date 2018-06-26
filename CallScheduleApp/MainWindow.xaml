@@ -32,10 +32,10 @@
                 <TextBlock Margin="5">Я работаю</TextBlock>
                 <ComboBox x:Name="work_days" 
                           Margin="5" />
-                <TextBlock Margin="5">дней через</TextBlock>
+                <TextBlock Margin="5">день через</TextBlock>
                 <ComboBox x:Name="rest_days" 
                           Margin="5" />
-                <TextBlock Margin="5">дней</TextBlock>
+                <TextBlock Margin="5">дня</TextBlock>
             </WrapPanel>
         </Grid>
         <ItemsControl x:Name="Calendar">

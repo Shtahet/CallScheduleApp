@@ -30,20 +30,24 @@ namespace CallScheduleApp
 
             InitializeMonthList();
 
-            InitalizeWorkDays();
+            //Init work days
+            InitializeDays(work_days, 14, 1);
+
+            //Init rest days
+            InitializeDays(rest_days, 14, 2);
         }
 
-        private void InitalizeWorkDays()
+        private void InitializeDays(ComboBox obj, int length, int deffValue)
         {
-            List<int> workDaysList = new List<int>();
+            List<int> daysList = new List<int>();
 
-            for (int i = 1; i<=14; ++i)
+            for (int i = 1; i<=length; ++i)
             {
-                workDaysList.Add(i);
+                daysList.Add(i);
             }
 
-            work_days.ItemsSource = workDaysList;
-            work_days.SelectedItem = 2;
+            obj.ItemsSource = daysList;
+            obj.SelectedItem = deffValue;
         }
 
         private void InitializYearsList()
