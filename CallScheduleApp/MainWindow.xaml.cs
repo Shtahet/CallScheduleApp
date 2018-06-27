@@ -37,7 +37,13 @@ namespace CallScheduleApp
             //Init rest days
             InitializeDays(rest_days, 14, 2);
 
-            last_call.SelectedDate = DateTime.Today;
+            //Set calendar day of last call
+            last_call.SelectedDate = new DateTime(2018, 6, 26);
+
+            //Set names of days
+            Queue<string> days = new Queue<string>(DateTimeFormatInfo.CurrentInfo.DayNames);
+            days.Enqueue(days.Dequeue());
+            DaysNames.ItemsSource = days.ToList();
 
             InitializeDaysItemsCollection();
 

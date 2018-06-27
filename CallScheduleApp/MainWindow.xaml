@@ -43,6 +43,14 @@
                 <TextBlock Margin="5">дня</TextBlock>
             </WrapPanel>
         </Grid>
+        <ItemsControl x:Name="DaysNames"
+                      DockPanel.Dock="Top">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="7" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
         <ItemsControl x:Name="Calendar">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
