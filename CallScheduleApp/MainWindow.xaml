@@ -5,16 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CallScheduleApp"
         mc:Ignorable="d"
-        Title="Рассписание дежурств" Height="450" Width="1000">
+        Title="Рассписание дежурств" Height="650" Width="1000"
+        FontSize="12pt" FontWeight="Bold">
     <DockPanel LastChildFill="True">
-        <Grid ShowGridLines="True" DockPanel.Dock="Top">
+        <Grid ShowGridLines="True" 
+              DockPanel.Dock="Top" >
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="AliceBlue" Offset="0.5" />
+                    <GradientStop Color="#D8DFE5" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <WrapPanel Grid.Column="0">
-                <TextBlock Margin="5">Рассчитать расписание на </TextBlock>
+                <TextBlock Margin="5" VerticalAlignment="Center">Рассчитать расписание на </TextBlock>
                 <ComboBox x:Name="months" 
                           Margin="5" 
                           MinWidth="75"
@@ -27,20 +35,20 @@
                 </ComboBox>
             </WrapPanel>
             <WrapPanel Grid.Column="1">
-                <TextBlock Margin="5">Последнее дежурство было:</TextBlock>
+                <TextBlock Margin="5" VerticalAlignment="Center">Последнее дежурство было:</TextBlock>
                 <DatePicker x:Name="last_call" 
                             SelectedDateChanged="report_SelectionChanged"/>
             </WrapPanel>
             <WrapPanel Grid.Column="2">
-                <TextBlock Margin="5">Я работаю</TextBlock>
+                <TextBlock Margin="5" VerticalAlignment="Center">Я работаю</TextBlock>
                 <ComboBox x:Name="work_days" 
                           Margin="5" 
                           SelectionChanged="report_SelectionChanged"/>
-                <TextBlock Margin="5">день через</TextBlock>
+                <TextBlock Margin="5" VerticalAlignment="Center">день через</TextBlock>
                 <ComboBox x:Name="rest_days" 
                           Margin="5" 
                           SelectionChanged="report_SelectionChanged"/>
-                <TextBlock Margin="5">дня</TextBlock>
+                <TextBlock Margin="5" VerticalAlignment="Center">дня</TextBlock>
             </WrapPanel>
         </Grid>
         <ItemsControl x:Name="DaysNames"
