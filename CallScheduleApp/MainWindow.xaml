@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <WrapPanel Grid.Column="0">
-                <TextBlock Margin="5" VerticalAlignment="Center">Рассчитать расписание на </TextBlock>
+                <TextBlock Margin="5" VerticalAlignment="Center">Рассчитать расписание на</TextBlock>
                 <ComboBox x:Name="months" 
                           Margin="5" 
                           MinWidth="75"
@@ -55,9 +55,17 @@
                       DockPanel.Dock="Top">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="7" />
+                    <UniformGrid Columns="7" 
+                                 Margin="5"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" 
+                               HorizontalAlignment="Center" 
+                               FontSize="16pt"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
         </ItemsControl>
         <ItemsControl x:Name="Calendar">
             <ItemsControl.ItemsPanel>
@@ -67,24 +75,46 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Path=NumDay}">
-                        <Label.Style>
-                            <Style TargetType="Label">
+                    <Border Margin="3">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="LightGray"/>
+                                <Setter Property="BorderThickness" Value="3"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsWorkingDay}" Value="true">
-                                        <Setter Property="Background">
-                                            <Setter.Value>
-                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                    <GradientStop Color="#D2691E" Offset="0"/>
-                                                    <GradientStop Color="#AA5518" Offset="1"/>
-                                                </LinearGradientBrush>
-                                            </Setter.Value>
-                                        </Setter>
+                                    <DataTrigger Binding="{Binding IsCurrentDay}" Value="true">
+                                        <Setter Property="BorderBrush" Value="CadetBlue"/>
+                                        <Setter Property="BorderThickness" Value="6"/>
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
-                        </Label.Style>
-                    </Label>
+                        </Border.Style>
+                        <Label Content="{Binding Path=NumDay}">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                                    <Setter Property="FontSize" Value="30pt"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsWorkingDay}" Value="true">
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="LightGreen" Offset="0" />
+                                                        <GradientStop Color="ForestGreen" Offset="0.4"/>
+                                                        <GradientStop Color="DarkGreen" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsCurrentMonth}" Value="false">
+                                            <Setter Property="Foreground" Value="LightGray" />
+                                            <Setter Property="Opacity" Value="0.4"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                    </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
