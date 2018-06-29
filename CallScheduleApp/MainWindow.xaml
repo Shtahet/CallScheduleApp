@@ -82,7 +82,7 @@
                                 <Setter Property="BorderThickness" Value="3"/>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding IsCurrentDay}" Value="true">
-                                        <Setter Property="BorderBrush" Value="CadetBlue"/>
+                                        <Setter Property="BorderBrush" Value="Black"/>
                                         <Setter Property="BorderThickness" Value="6"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -99,15 +99,14 @@
                                             <Setter Property="Background">
                                                 <Setter.Value>
                                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                        <GradientStop Color="LightGreen" Offset="0" />
-                                                        <GradientStop Color="ForestGreen" Offset="0.4"/>
+                                                        <GradientStop Color="ForestGreen" Offset="0.5"/>
                                                         <GradientStop Color="DarkGreen" Offset="1"/>
                                                     </LinearGradientBrush>
                                                 </Setter.Value>
                                             </Setter>
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding IsCurrentMonth}" Value="false">
-                                            <Setter Property="Foreground" Value="LightGray" />
+                                            <Setter Property="Foreground" Value="Gray" />
                                             <Setter Property="Opacity" Value="0.4"/>
                                         </DataTrigger>
                                     </Style.Triggers>
